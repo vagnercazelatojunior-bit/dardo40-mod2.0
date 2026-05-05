@@ -1,0 +1,31 @@
+type: ItemTurret
+name: Silo Dardo-40
+description: O terror da campanha. 50Mt de puro poder nuclear.
+size: 5
+health: 9000
+range: 6500
+reload: 1500
+shootSound: explosionbig
+shake: 15
+category: turret
+ammoTypes: {
+  plutonio: {
+    type: ArtilleryBulletType
+    damage: 60000
+    splashDamage: 45000
+    splashDamageRadius: 550
+    speed: 6
+    lifetime: 1100
+    hitShake: 40
+    status: blasted
+    despawnEffect: nuclearShockwave
+    hitEffect: massiveExplosion
+  }
+}
+requirements: [
+  copper/1500
+  lead/1000
+  thorium/500
+  silicon/400
+]
+research: thorium
