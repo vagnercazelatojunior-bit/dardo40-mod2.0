@@ -1,0 +1,7 @@
+name: Plutônio
+description: Matéria físsil rara. Desbloqueie após o Tório.
+explosiveness: 1.5
+radioactivity: 3.0
+flammability: 0.1
+color: 83f581
+research: thorium
