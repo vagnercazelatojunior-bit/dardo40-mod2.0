@@ -18,7 +18,7 @@ ammoTypes: {
     lifetime: 1100
     hitShake: 40
     status: blasted
-    despawnEffect: nuclearShockwave
+    despawnEffect: massiveExplosion
     hitEffect: massiveExplosion
   }
 }
