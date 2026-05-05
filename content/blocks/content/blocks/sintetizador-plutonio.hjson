@@ -1,0 +1,23 @@
+type: GenericCrafter
+name: Sintetizador de Plutônio
+size: 3
+hasPower: true
+hasItems: true
+craftTime: 300
+consumes: {
+  power: 10
+  items: {
+    items: [
+      thorium/5
+      blast-compound/3
+    ]
+  }
+}
+outputItem: plutonio/1
+category: crafting
+requirements: [
+  lead/200
+  thorium/80
+  silicon/100
+]
+research: thorium
