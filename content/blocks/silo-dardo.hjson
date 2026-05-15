@@ -1,5 +1,6 @@
 type: ItemTurret
 name: Silo Dardo-40
+description: "Silo de longo alcance que dispara mísseis balísticos de plutônio."
 size: 5
 health: 9000
 range: 6500
@@ -7,6 +8,7 @@ reload: 1500
 shootSound: explosionbig
 shake: 20
 category: turret
+
 ammoTypes: {
   plutonio: {
     type: ArtilleryBulletType
@@ -14,15 +16,20 @@ ammoTypes: {
     splashDamage: 45000
     splashDamageRadius: 550
     speed: 6
-    lifetime: 1100
+    lifetime: 1084
     hitShake: 50
     status: blasted
-    // Efeitos de explosão que funcionam em todas as versões:
-    despawnEffect: reactorExplosion
-    hitEffect: massiveExplosion
-    shootEffect: nuclearCloud
+    despawnEffect: nuclearCloud
+    hitEffect: reactorExplosion
+    shootEffect: shootBigSmoke
+    frontColor: "ff0000"
+    backColor: "aa0000"
+    width: 24
+    height: 32
+    shrinkY: 0
   }
 }
+
 requirements: [
   copper/1500
   lead/1000
@@ -30,4 +37,3 @@ requirements: [
   silicon/400
 ]
 research: thorium
-
