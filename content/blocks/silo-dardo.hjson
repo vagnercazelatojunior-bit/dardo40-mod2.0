@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Silo Dardo-40
-description: "Silo de longo alcance que dispara mísseis balísticos de plutônio."
+description: "Silo de longo alcance que dispara mísseis balísticos de plutônio. Pode ser resfriado com água ou criofluido para reduzir o tempo de recarga."
 size: 5
 health: 9000
 range: 6500
@@ -8,6 +8,15 @@ reload: 1500
 shootSound: explosionbig
 shake: 20
 category: turret
+
+// SISTEMA DE RESFRIAMENTO (ÁGUA E CRIOFLUIDO)
+hasLiquids: true
+coolantMultiplier: 1.5
+consumes: {
+  coolant: {
+    amount: 0.5
+  }
+}
 
 ammoTypes: {
   plutonio: {
@@ -20,7 +29,6 @@ ammoTypes: {
     hitShake: 50
     status: blasted
     
-    // EFEITOS CORRIGIDOS PARA A V8:
     despawnEffect: impactReactorExplosion
     hitEffect: reactorExplosion
     shootEffect: massiveExplosion
