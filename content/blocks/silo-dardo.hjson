@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Silo Dardo-40
-description: "Silo de longo alcance que dispara mísseis balísticos de plutônio. Pode ser resfriado com água ou criofluido para reduzir o tempo de recarga."
+description: "Silo de longo alcance que dispara mísseis balísticos pesados. Aceita tório ou plutônio como ogiva."
 size: 5
 health: 9000
 range: 6500
@@ -9,7 +9,7 @@ shootSound: explosionbig
 shake: 20
 category: turret
 
-// SISTEMA DE RESFRIAMENTO (ÁGUA E CRIOFLUIDO)
+// Sistema de Fluidos para Resfriamento
 hasLiquids: true
 coolantMultiplier: 1.5
 consumes: {
@@ -18,7 +18,32 @@ consumes: {
   }
 }
 
+// Configuração de Munições (Tório e Plutônio)
 ammoTypes: {
+  // MUNIÇÃO 1: TÓRIO (Nativo do jogo)
+  thorium: {
+    type: ArtilleryBulletType
+    damage: 25000
+    splashDamage: 18000
+    splashDamageRadius: 320
+    speed: 6
+    lifetime: 1084
+    hitShake: 30
+    status: blasted
+    
+    // Efeitos visuais roxos do Tório
+    despawnEffect: reactorExplosion
+    hitEffect: massiveExplosion
+    shootEffect: shootBigSmoke
+    
+    frontColor: "f9a3f9"
+    backColor: "cb7fcb"
+    width: 20
+    height: 28
+    shrinkY: 0
+  }
+
+  // MUNIÇÃO 2: PLUTÔNIO (O item customizado do seu mod)
   plutonio: {
     type: ArtilleryBulletType
     damage: 60000
@@ -29,12 +54,13 @@ ammoTypes: {
     hitShake: 50
     status: blasted
     
+    // Efeitos visuais verdes e radioativos do Plutônio
     despawnEffect: impactReactorExplosion
     hitEffect: reactorExplosion
     shootEffect: massiveExplosion
     
-    frontColor: "ff0000"
-    backColor: "aa0000"
+    frontColor: "42ff42"
+    backColor: "11aa11"
     width: 24
     height: 32
     shrinkY: 0
