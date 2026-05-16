@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Silo Dardo-40
-description: "Silo de longo alcance que dispara mísseis balísticos pesados. Aceita tório ou plutônio como ogiva."
+description: "Silo balístico de longo alcance. Dispara ogivas nucleares pesadas calibradas para interceptar alvos terrestres e hordas aéreas na dificuldade Erradicação."
 size: 5
 health: 9000
 range: 6500
@@ -9,7 +9,7 @@ shootSound: explosionbig
 shake: 20
 category: turret
 
-// Sistema de Fluidos para Resfriamento
+// Sistema de Fluidos para Resfriamento Avançado (Trítio garante 4.95x)
 hasLiquids: true
 coolantMultiplier: 1.5
 consumes: {
@@ -18,20 +18,22 @@ consumes: {
   }
 }
 
-// Configuração de Munições (Tório e Plutônio)
 ammoTypes: {
-  // MUNIÇÃO 1: TÓRIO (Nativo do jogo)
+  // 🔮 MUNIÇÃO 1: TÓRIO (Ogiva Antiaérea / Defesa de Área)
   thorium: {
     type: ArtilleryBulletType
     damage: 25000
     splashDamage: 18000
-    splashDamageRadius: 320
+    splashDamageRadius: 450
     speed: 6
     lifetime: 1084
     hitShake: 30
     status: blasted
     
-    // Efeitos visuais roxos do Tório
+    // Força o míssil a colidir e explodir direto nos aviões e chefes voadores
+    collidesAir: true
+    flakInterval: 20
+    
     despawnEffect: reactorExplosion
     hitEffect: massiveExplosion
     shootEffect: shootBigSmoke
@@ -43,27 +45,49 @@ ammoTypes: {
     shrinkY: 0
   }
 
-  // MUNIÇÃO 2: PLUTÔNIO (O item customizado do seu mod)
+  // ☢️ MUNIÇÃO 2: PLUTÔNIO (Ogiva Apocalíptica de Fragmentação - Insta-Kill)
+  // Nota: se o jogo não achar o item, mude 'plutonio' para 'id-do-seu-outro-mod-plutonio'
   plutonio: {
     type: ArtilleryBulletType
-    damage: 60000
-    splashDamage: 45000
-    splashDamageRadius: 550
+    damage: 95000         // Dano massivo para quebrar escudos de Tier 5 e Antubras
+    splashDamage: 80000   // Destruição de área devastadora
+    splashDamageRadius: 750 // Raio de explosão gigante (pega quase a tela inteira)
     speed: 6
     lifetime: 1084
-    hitShake: 50
+    hitShake: 60
     status: blasted
     
-    // Efeitos visuais verdes e radioativos do Plutônio
+    // Detonação em pleno ar contra alvos voadores
+    collidesAir: true
+    
     despawnEffect: impactReactorExplosion
     hitEffect: reactorExplosion
     shootEffect: massiveExplosion
     
     frontColor: "42ff42"
     backColor: "11aa11"
-    width: 24
-    height: 32
+    width: 28
+    height: 38
     shrinkY: 0
+
+    // SISTEMA DE FRAGMENTAÇÃO ANTIAÉREA DA V8
+    // Cospe 15 submísseis teleguiados em todas as direções para limpar o resto da horda
+    fragBullets: 15
+    fragVelocityMin: 0.5
+    fragVelocityMax: 1.5
+    fragBullet: {
+      type: MissileBulletType
+      damage: 1500
+      splashDamage: 800
+      splashDamageRadius: 80
+      speed: 5
+      lifetime: 40
+      homingPower: 0.2
+      homingRange: 200
+      collidesAir: true
+      frontColor: "a3ffa3"
+      backColor: "42ff42"
+    }
   }
 }
 
