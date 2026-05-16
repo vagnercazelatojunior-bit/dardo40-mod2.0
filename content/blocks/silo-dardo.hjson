@@ -19,9 +19,12 @@ ammoTypes: {
     lifetime: 1084
     hitShake: 50
     status: blasted
-    despawnEffect: nuclearCloud
+    
+    // EFEITOS CORRIGIDOS PARA A V8:
+    despawnEffect: impactReactorExplosion
     hitEffect: reactorExplosion
-    shootEffect: shootBigSmoke
+    shootEffect: massiveExplosion
+    
     frontColor: "ff0000"
     backColor: "aa0000"
     width: 24
